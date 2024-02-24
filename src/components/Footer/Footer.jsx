@@ -9,7 +9,7 @@ const Footer = () => {
             <Box>Number</Box>
       </Box>
       <Box display={"flex"} flexDir={"column"} p={"10px"}>
-            <Box>YOU_PROF</Box>
+            <Box>App_Name</Box>
             <Box>Find Your Business Here</Box>
       </Box>
       <Box display={"flex"} flexDir={"column"} p={"10px"}>

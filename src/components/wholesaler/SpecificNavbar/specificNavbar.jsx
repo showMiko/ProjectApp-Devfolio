@@ -29,7 +29,7 @@ const SpecificNavbar = ({profilePic}) => {
   }
 
   return (
-    <Box p="5" display={"flex"} justifyContent={"space-between"}>
+    <Box display={"flex"} justifyContent={"space-between"}>
       {/* Hamburger Menu Button */}
       <IconButton 
         icon={<FiMenu />} 
@@ -43,7 +43,7 @@ const SpecificNavbar = ({profilePic}) => {
       {/* Navbar Links */}
       <Box display={{ base: 'none', md: 'flex' }} fontSize={"20px"}>
         <Box mr={10}>My Shop</Box>
-        <Box mr={10}>My Products</Box>
+        <Box mr={10} onClick={()=>{navigate('/wholesaler/products')}} cursor='pointer'>My Products</Box>
         <Box mr={10}>Retailers</Box>
       </Box>
 
