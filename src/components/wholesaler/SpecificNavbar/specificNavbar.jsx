@@ -2,11 +2,11 @@ import { Box, Image, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerClo
 import { FiMenu } from 'react-icons/fi'; // Import hamburger menu icon
 import React, { useState } from 'react'
 import cart from "../../../assets/cart img.png"
-import profilePic from  "../../../assets/Profile Pic.png"
+// import profilePic from  "../../../assets/Profile Pic.png"
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../AuthContext/AuthContext';
 
-const SpecificNavbar = () => {
+const SpecificNavbar = ({profilePic}) => {
   const [isOpen, setIsOpen] = useState(false);
   const toast=useToast();
   const navigate=useNavigate()

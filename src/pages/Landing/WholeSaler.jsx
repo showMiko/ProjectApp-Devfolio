@@ -9,10 +9,8 @@ const WholeSaler = () => {
   return (
     <Box >
       <Box p={10} backgroundColor={"#EBE3D5"}>
-      <SpecificNavbar/>
-      <WholeSalerBanner/>
+        <BodyFile/>
       </Box>
-      <BodyFile/>
     </Box>
   )
 }

@@ -6,6 +6,10 @@ import OnScreenCard from './OnScreenCard'
 import CustomerReview from './CustomerReview'
 import app from '../../../FirebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../components/AuthContext/AuthContext';
+import SpecificNavbar from '../../../components/wholesaler/SpecificNavbar/specificNavbar';
+import WholeSaler from '../WholeSaler';
+import WholeSalerBanner from '../WholeSalerBanner';
 
 const BodyFile = () => {
   const navigate=useNavigate();
@@ -27,13 +31,31 @@ const BodyFile = () => {
       imageList.push(url);
     }
   };
+  const [profilePic,setprofilePic]=useState();
+  const fetchProfilePic = async () => {
+    const localEmail=localStorage.getItem('email');
+    // console.log(localEmail+" from fetch List");
+    const storageRef = imageRef(storage, `${localEmail}/profilePic/`);
+
+    const listResult = await listAll(storageRef);
+
+    for (const item of listResult.items) {
+      const url = await getDownloadURL(item);
+      setprofilePic(url);
+      console.log(profilePic)
+    }
+  };
   
   useEffect(() => {
     // setLoading(false);
     fetchImages();
+    fetchProfilePic();
   },[fetchImages]);
 
   return (
+    <Box>
+      <SpecificNavbar profilePic={profilePic}/>
+      <WholeSalerBanner/>
     <Box backgroundColor={"#F3EEEA"} borderRadius={"30px"} h={"100%"} p={10} display={"flex"} flexDir={"column"}>
       {/* <Button>Add Image</Button> */}
       <Box>
@@ -44,7 +66,7 @@ const BodyFile = () => {
 
         <Gallery imageList={imageList}/>
       <Button width={"100px"} mt={"100px"} fontFamily={"Karantina"} fontSize={25} backgroundColor={"#B0A695"} ml={"90%"}>Edit Info</Button>
-      <OnScreenCard/>
+      <OnScreenCard profilePic={profilePic}/>
       <Box mt={10} mb={10} fontSize={80}  fontFamily={"Karantina"}>Hear From Our Customers
       <Box
         width={"100%"}
@@ -56,6 +78,7 @@ const BodyFile = () => {
         </Box>
       <CustomerReview/>
     </Box>
+        </Box>
   )
 }
 

@@ -17,9 +17,11 @@ const Signup = () => {
   const [gst, setGst] = useState('');
   const [aadhar, setAadhar] = useState('');
   const [category, setCategory] = useState('');
+  const [shopname,setShopname] = useState('');
   const [tradeImg, setTradeImg] = useState(null);
   const [gstBillImg, setGstBillImg] = useState(null);
   const [aadharImg, setAadharImg] = useState(null);
+  const [profilePic,setProfilePic]=useState(null);
   const toast = useToast()
 
   const handleTradeLicenseImageChange = (e) => {
@@ -37,6 +39,12 @@ const Signup = () => {
       setAadharImg(e.target.files[0]);
     }
   };
+  const handleProfileImageChange=(e)=>{
+    if(e.target.files[0])
+    {
+      setProfilePic(e.target.files[0])
+    }
+  }
 
   const navigate=useNavigate();
   const handleInputChange = (event) => {
@@ -65,6 +73,9 @@ const Signup = () => {
       case 'gst':
         setGst(value);
         break;
+      case 'shopname':
+        setShopname(value);
+        break;
       case 'aadhar':
         setAadhar(value);
         break;
@@ -84,6 +95,14 @@ const Signup = () => {
       console.error('Error uploading image: ', error);
     });
   }
+  const profilePicUpload =(image)=>{
+    const storageRef = imageRef(storage, `${email}/profilePic/${image.name}`);
+    uploadBytes(storageRef, image).then(() => {
+      // console.log('Image uploaded successfully!');
+    }).catch(error => {
+      console.error('Error uploading image: ', error);
+    });
+  }
   const handleSubmit =async (event) => {
     event.preventDefault();
     const db = getDatabase(app);
@@ -96,6 +115,7 @@ const Signup = () => {
     licenseUpload(tradeImg)
     licenseUpload(gstBillImg)
     licenseUpload(aadharImg)
+    profilePicUpload(profilePic)
     
 
     await push(usersRef, {
@@ -104,6 +124,7 @@ const Signup = () => {
       email,
       newPassword,
       address,
+      shopname,
       license,
       gst,
       aadhar,
@@ -124,7 +145,7 @@ const Signup = () => {
   };
 
   return (
-    <Box className="background-image" maxH={"100vh"}>
+    <Box className="background-image" maxH={"100vh"} overflow={"scroll"}>
       <Box fontFamily="Karantina" color="#D7BD61">
         <Box
           ml="75%"
@@ -146,6 +167,16 @@ const Signup = () => {
                 '-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black',
             }}
           >
+            <Box borderRadius={"50%"}>
+              Upload Profile Pic
+              <br/>
+              <Input 
+                type='file' 
+                width={"80%"} 
+                name='profilePic'
+                onChange={handleProfileImageChange} 
+              />
+            </Box>
             <Box width="80%">
               <Box mb={-2}>Name</Box>
               <Input
@@ -205,6 +236,19 @@ const Signup = () => {
                 type="text"
                 name="address"
                 value={address}
+                onChange={handleInputChange}
+                color="black"
+                fontSize={20}
+                variant="flushed"
+              />
+            </Box>
+            <Box width="80%">
+              <Box mb={-2}>Shop Name</Box>
+              <Input
+                mb={3}
+                type="text"
+                name="shopname"
+                value={shopname}
                 onChange={handleInputChange}
                 color="black"
                 fontSize={20}

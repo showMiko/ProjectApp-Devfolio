@@ -8,6 +8,7 @@ export default function AuthProvider  ({children}) {
       const[email,setEmail]=useState(null);
       const[isAuthenticated,setIsAuthenticated]=useState(false);
       const [userDetails,setUserDetails]=useState(null);
+      const[profilePic,setProfilePic]=useState(null);
 
       useEffect(() => {
             const storedEmail = localStorage.getItem('email');
@@ -29,7 +30,7 @@ export default function AuthProvider  ({children}) {
       
                   if (matchingUsers.length > 0) {
                       setUserDetails(matchingUsers[0]); // Assuming there is only one user with the matching email
-                      // console.log(userDetails+" is the retrieved Data")
+                      // console.log(userDetails)
                 } else {
                       console.log("No user found with the provided email");
                   }
@@ -41,7 +42,7 @@ export default function AuthProvider  ({children}) {
           });
         }
 
-      const values={userDetails,findUserDetails,email,setEmail,username,setUsername,password,setPassword,isAuthenticated,setIsAuthenticated};
+      const values={profilePic,setProfilePic,userDetails,findUserDetails,email,setEmail,username,setUsername,password,setPassword,isAuthenticated,setIsAuthenticated};
 
   return (
     <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
