@@ -15,6 +15,8 @@ import AuthProvider, { useAuth } from './components/AuthContext/AuthContext';
 import AddShopImagePage from './pages/Landing/Landing Body WholeSaler/AddShopImagePage';
 import Products from "./pages/Products/Products";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import RetailerLanding from './pages/Landing/Landing Body Retailer/RetailerLanding';
+
 import './App.css';
 function App() {
   const AuthenticatedRoute=({children})=>{
