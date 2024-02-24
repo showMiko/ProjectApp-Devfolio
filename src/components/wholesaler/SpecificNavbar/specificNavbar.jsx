@@ -29,7 +29,7 @@ const SpecificNavbar = ({profilePic}) => {
   }
 
   return (
-    <Box display={"flex"} justifyContent={"space-between"}>
+    <Box p="5" display={"flex"} justifyContent={"space-between"}>
       {/* Hamburger Menu Button */}
       <IconButton 
         icon={<FiMenu />} 
