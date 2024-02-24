@@ -1,7 +1,15 @@
 import { initializeApp } from 'firebase/app';
 import 'firebase/firestore'; // Import other Firebase services if needed
 // import 'firebase/auth'; // if you're using Authentication
-
+// require('dotenv').config();
+// const firebaseConfig = {
+//   apiKey: process.env.APIKEY,
+//   authDomain: process.env.AUTH_DOMAIN,
+//   projectId: process.env.PROJECT_ID,
+//   storageBucket: process.env.STORAGE_BUCKET,
+//   messagingSenderId: process.env.MESSAGE_SENDER_ID,
+//   appId: process.env.APP_ID
+// };
 const firebaseConfig = {
   apiKey: "AIzaSyD3RZF9XQoKO0LYsm7fUJpoHx6rhpqDVqI",
   authDomain: "testproject-1b79d.firebaseapp.com",

@@ -1,5 +1,4 @@
 .background-image {
-<<<<<<< Updated upstream
       position: fixed;
       top: 0;
       left: 0;
@@ -9,16 +8,6 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-=======
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../../assets/SignUpLogin.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 @media (max-width: 768px) {
@@ -27,6 +16,5 @@
         /* Permite a rolagem da imagem em dispositivos móveis */
         background-size: contain;
         /* Ajusta o tamanho da imagem para caber na tela do dispositivo */
->>>>>>> Stashed changes
     }
 }

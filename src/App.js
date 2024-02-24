@@ -46,7 +46,12 @@ function App() {
               <AddShopImagePage/>
             </AuthenticatedRoute>
           } />
-          <Route path='/retailer' element={<RetailerLanding/>} />
+          <Route path='/retailer/home' element={
+          <AuthenticatedRoute>
+          <RetailerLanding/>
+          </AuthenticatedRoute>
+          
+          } />
       </Routes>
       </BrowserRouter>
     </Box>

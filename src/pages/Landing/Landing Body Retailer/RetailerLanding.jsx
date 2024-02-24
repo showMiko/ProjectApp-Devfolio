@@ -82,7 +82,7 @@ const RetailerLanding = () => {
   ];
 
   return (
-    <Box display="flex" flexDir="column" justifyContent="center">
+    <Box bgColor="#EBE3D5" display="flex" flexDir="column" justifyContent="center">
       <SpecificNavbar />
       <SearchBar />
       <Box display="flex" flexDir="column" justifyContent="center" alignItems="center">
