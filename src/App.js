@@ -11,9 +11,11 @@ import SelectLoginSignup from './components/LoginSignUp/SelectLoginSignup';
 import Signup from './components/LoginSignUp/Signup';
 import Login from './components/LoginSignUp/Login';
 import WholeSaler from './pages/Landing/WholeSaler';
-import RetailerLanding from './pages/Landing/Landing Body Retailer/RetailerLanding';
 import AuthProvider, { useAuth } from './components/AuthContext/AuthContext';
 import AddShopImagePage from './pages/Landing/Landing Body WholeSaler/AddShopImagePage';
+import Products from "./pages/Products/Products";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import './App.css';
 function App() {
   const AuthenticatedRoute=({children})=>{
     const authContext=useAuth();
@@ -41,17 +43,9 @@ function App() {
               <AddShopImagePage/>
             </AuthenticatedRoute>
           } />
-          <Route path='/wholesaler/home/addimage' element={
-            <AuthenticatedRoute>
-              <AddShopImagePage/>
-            </AuthenticatedRoute>
-          } />
-          <Route path='/retailer/home' element={
-          <AuthenticatedRoute>
-          <RetailerLanding/>
-          </AuthenticatedRoute>
-          
-          } />
+          <Route path="/wholesaler/products" element={<AuthenticatedRoute><Products /></AuthenticatedRoute>} />
+          <Route path="/wholesaler/products/1" element={<AuthenticatedRoute><ProductDetails /></AuthenticatedRoute>} />
+        
       </Routes>
       </BrowserRouter>
     </Box>

@@ -8,13 +8,12 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-}
-
-@media (max-width: 768px) {
-    .background-image {
-        background-attachment: scroll;
-        /* Permite a rolagem da imagem em dispositivos móveis */
-        background-size: contain;
-        /* Ajusta o tamanho da imagem para caber na tela do dispositivo */
     }
-}
+    @media (max-width: 768px) {
+      .background-image {
+        background-attachment: scroll; /* Permite a rolagem da imagem em dispositivos móveis */
+        background-size: contain; /* Ajusta o tamanho da imagem para caber na tela do dispositivo */
+      }
+    }
+    
+    
