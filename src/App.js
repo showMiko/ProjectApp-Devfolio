@@ -45,7 +45,12 @@ function App() {
           } />
           <Route path="/wholesaler/products" element={<AuthenticatedRoute><Products /></AuthenticatedRoute>} />
           <Route path="/wholesaler/products/1" element={<AuthenticatedRoute><ProductDetails /></AuthenticatedRoute>} />
-        
+          <Route path='/retailer/home' element={
+          <AuthenticatedRoute>
+          <RetailerLanding/>
+          </AuthenticatedRoute>
+          
+          } />
       </Routes>
       </BrowserRouter>
     </Box>
