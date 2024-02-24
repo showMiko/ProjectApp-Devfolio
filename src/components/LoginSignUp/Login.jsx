@@ -50,7 +50,7 @@ const Login = () => {
           // authContext.findUserDetails();
           // setTimeout(()=>{
             
-            navigate("/wholesaler/home");
+            navigate(`/${category}/home`);
           // },4000)
         // console.log(authContext.email)
         })
